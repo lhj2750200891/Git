@@ -1,4 +1,5 @@
 #include "oled.h"
+#include "timer.h"
 
 const unsigned char oled_asc2_1206[95][12]= {
     {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},/*" ",0*/
@@ -415,20 +416,41 @@ void OLED_DrawPoint_Shu(uint8_t x,uint8_t y,uint8_t t)
     }
 }
 
+/*
+函数功能：显示浮点型数字
+入口参数：坐标（x，y），数字：num，大小：一般为 12 ，模式：一般填写 1 
+返回值：无
+*/
+void OLED_ShowFloat(uint8_t x, uint8_t y, float num, uint8_t size, uint8_t mode) 
+{
+    // 将浮点数转换为字符串
+    char str[20];
+    sprintf(str, "%.2f", num);
+
+    uint8_t i = 0;
+    while (str[i]!= '\0') {
+        OLED_ShowChar(x, y, str[i], size, mode);
+        x += size;
+        i++;
+    }
+}
 
 
 void OLED_Show(void)
 {
-	OLED_ShowString(20,00,"POW:");
+  OLED_ShowString(00,00,"POW:");
 	OLED_ShowString(100,00,"V");
-	OLED_ShowString(20,30,"L-SPD:");
-	OLED_ShowString(20,40,"R-SPD:");
-	OLED_ShowString(20,50,"yaw:");
-	OLED_ShowNumber(0,0,10,2,12);
-		
+	OLED_ShowString(00,15,"L-SPD:");
+	OLED_ShowString(00,30,"R-SPD:");
+	OLED_ShowString(00,45,"YAW:");
+	
+	OLED_ShowFloat(35,0,ADC_Vol,12,1);  //电池电压
+	OLED_ShowNumber(50,15,EncoderA,2,12);
+	OLED_ShowNumber(50,30,EncoderB,2,12);
+	OLED_ShowFloat(35,45,yaw,12,1);  //yaw
+	
 	OLED_Refresh_Gram();
 }
-
 
 
 
