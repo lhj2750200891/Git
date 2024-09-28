@@ -1,0 +1,16 @@
+f407zgt6\mpl.o: ..\MPU6050\mllite\mpl.c
+f407zgt6\mpl.o: ..\MPU6050\mllite\storage_manager.h
+f407zgt6\mpl.o: ..\MPU6050\driver\include\mltypes.h
+f407zgt6\mpl.o: ..\MPU6050\driver\include\stdint_invensense.h
+f407zgt6\mpl.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+f407zgt6\mpl.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\string.h
+f407zgt6\mpl.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\errno.h
+f407zgt6\mpl.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\limits.h
+f407zgt6\mpl.o: ..\MPU6050\driver\include\log.h
+f407zgt6\mpl.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
+f407zgt6\mpl.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\stdarg.h
+f407zgt6\mpl.o: ..\MPU6050\mllite\mpl.h
+f407zgt6\mpl.o: ..\MPU6050\mllite\start_manager.h
+f407zgt6\mpl.o: ..\MPU6050\mllite\data_builder.h
+f407zgt6\mpl.o: ..\MPU6050\mllite\results_holder.h
+f407zgt6\mpl.o: ..\MPU6050\driver\include\mlinclude.h

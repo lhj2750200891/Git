@@ -1,0 +1,11 @@
+f407zgt6\start_manager.o: ..\MPU6050\mllite\start_manager.c
+f407zgt6\start_manager.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\string.h
+f407zgt6\start_manager.o: ..\MPU6050\driver\include\log.h
+f407zgt6\start_manager.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
+f407zgt6\start_manager.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\stdarg.h
+f407zgt6\start_manager.o: ..\MPU6050\mllite\start_manager.h
+f407zgt6\start_manager.o: ..\MPU6050\driver\include\mltypes.h
+f407zgt6\start_manager.o: ..\MPU6050\driver\include\stdint_invensense.h
+f407zgt6\start_manager.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\stdint.h
+f407zgt6\start_manager.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\errno.h
+f407zgt6\start_manager.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\limits.h
