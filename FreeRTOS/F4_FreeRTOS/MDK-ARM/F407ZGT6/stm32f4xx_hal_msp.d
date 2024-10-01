@@ -45,15 +45,12 @@ f407zgt6\stm32f4xx_hal_msp.o: ../Hardware/TB6612/TB6612.h
 f407zgt6\stm32f4xx_hal_msp.o: ../Hardware/PID/pid.h
 f407zgt6\stm32f4xx_hal_msp.o: ../Hardware/TIMER/timer.h
 f407zgt6\stm32f4xx_hal_msp.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\math.h
-f407zgt6\stm32f4xx_hal_msp.o: ../Hardware/Hardware_MPU6050/mpu6050.h
-f407zgt6\stm32f4xx_hal_msp.o: ../Core/Inc/i2c.h
-f407zgt6\stm32f4xx_hal_msp.o: ../Hardware/Hardware_MPU6050/inv_mpu.h
-f407zgt6\stm32f4xx_hal_msp.o: ../Hardware/Hardware_MPU6050/inv_mpu_dmp_motion_driver.h
 f407zgt6\stm32f4xx_hal_msp.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\stdio.h
 f407zgt6\stm32f4xx_hal_msp.o: ../Core/Inc/tim.h
 f407zgt6\stm32f4xx_hal_msp.o: ../Core/Inc/gpio.h
 f407zgt6\stm32f4xx_hal_msp.o: ../Core/Inc/adc.h
 f407zgt6\stm32f4xx_hal_msp.o: ../Core/Inc/dma.h
+f407zgt6\stm32f4xx_hal_msp.o: ../Core/Inc/i2c.h
 f407zgt6\stm32f4xx_hal_msp.o: ../Core/Inc/usart.h
 f407zgt6\stm32f4xx_hal_msp.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 f407zgt6\stm32f4xx_hal_msp.o: ../Core/Inc/FreeRTOSConfig.h
@@ -67,3 +64,7 @@ f407zgt6\stm32f4xx_hal_msp.o: ../Middlewares/Third_Party/FreeRTOS/Source/include
 f407zgt6\stm32f4xx_hal_msp.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 f407zgt6\stm32f4xx_hal_msp.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 f407zgt6\stm32f4xx_hal_msp.o: ../Hardware/RTOS/RTOS.h
+f407zgt6\stm32f4xx_hal_msp.o: ..\Hardware\HWT101\HWT101.h
+f407zgt6\stm32f4xx_hal_msp.o: ..\Hardware\HWT101\wit_c_sdk.h
+f407zgt6\stm32f4xx_hal_msp.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\string.h
+f407zgt6\stm32f4xx_hal_msp.o: ..\Hardware\HWT101\REG.h

@@ -1,29 +1,10 @@
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file    usart.c
-  * @brief   This file provides code for the configuration
-  *          of the USART instances.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
-/* Includes ------------------------------------------------------------------*/
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
 /******************************************************************�����ض���*********************************************************************************/
 #include "stdio.h"  
 #include "string.h"
+#include "wit_c_sdk.h"
 
 int fputc(int ch, FILE *stream)
 {
@@ -36,35 +17,6 @@ int fputc(int ch, FILE *stream)
     return ch;
 }
 
-//�ض���c�⺯��sacnf�����ݽ��ռĴ�����USART_RDR��
-//int fgetc(FILE *filename)
-//{
-//	while( (USART2->SR & (1 << 5)) == 0){};
-//	return USART2->DR;
-//}
-
-/* �ض���C�⺯��������,printf */
-//int fputc(int ch,FILE *f)
-//{
-//    HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 1000);
-//    return (ch);
-//}
- 
-//int fgetc(FILE *f)
-//{
-//    int ch;
-//    HAL_UART_Receive(&huart2, (uint8_t *)&ch, 1, 1000);
-//    return ch;
-//}
-////�ض���fputc���� 
-//int fputc(int ch, FILE *f)
-//{      
-//	while((USART2->SR&0X40)==0) //ѭ������,ֱ���������   
-//    USART2->DR = (uint8_t) ch;      
-//	return ch;
-//}
-/******************************************************************�����ض���*********************************************************************************/
-/* USER CODE END 0 */
 
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
@@ -354,186 +306,33 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
-/*******************************************************����1**********************************************************************************************/
-/* ���ջ���, ���USART_REC_LEN���ֽ�. */
-uint8_t g_usart_rx_buf[USART_REC_LEN];
-
-/*  ����״̬
- *  bit15��      ������ɱ�־
- *  bit14��      ���յ�0x0d
- *  bit13~0��    ���յ�����Ч�ֽ���Ŀ
-*/
-uint16_t g_usart_rx_sta = 0;												//����״̬���	
-
-uint8_t g_rx_buffer[RXBUFFERSIZE];                  /* HAL��ʹ�õĴ��ڽ��ջ��� */
-
-UART_HandleTypeDef g_uart1_handle;                  /* UART��� */
-/*******************************************************����1**********************************************************************************************/
-
-/*******************************************************����2**********************************************************************************************/
-/* ���ջ���, ���USART_REC_LEN���ֽ�. */
-uint8_t g_usart2_rx_buf[USART2_REC_LEN];
-
-/*  ����״̬
- *  bit15��      ������ɱ�־
- *  bit14��      ���յ�0x0d
- *  bit13~0��    ���յ�����Ч�ֽ���Ŀ
-*/
-uint16_t g_usart2_rx_sta = 0;												//����״̬���	
-
-uint8_t g_rx2_buffer[RX2BUFFERSIZE];                  /* HAL��ʹ�õĴ��ڽ��ջ��� */
-
-UART_HandleTypeDef g_uart2_handle;                  /* UART��� */
-/*******************************************************����2**********************************************************************************************/
-
-/*******************************************************����3**********************************************************************************************/
-/* ���ջ���, ���USART_REC_LEN���ֽ�. */
-uint8_t g_usart3_rx_buf[USART3_REC_LEN];
-
-/*  ����״̬
- *  bit15��      ������ɱ�־
- *  bit14��      ���յ�0x0d
- *  bit13~0��    ���յ�����Ч�ֽ���Ŀ
-*/
-uint16_t g_usart3_rx_sta = 0;												//����״̬���	
-
-uint8_t g_rx3_buffer[RX3BUFFERSIZE];                  /* HAL��ʹ�õĴ��ڽ��ջ��� */
-
-UART_HandleTypeDef g_uart3_handle;                  /* UART��� */
-/*******************************************************����3**********************************************************************************************/
-
-/***************************************************���ڻص�����*****************************************************************************************/
 uint8_t revbuf1[6];
 uint8_t revbuf2[6];
 uint8_t revbuf3[6];
+
+unsigned char ucTemp;
+
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {		
-		/*����1���жϺ���*/
-    if(huart->Instance == USART1)             /* ����Ǵ���1 */
+		
+    if(huart->Instance == USART1)             
     {
 			HAL_GPIO_TogglePin(LED0_GPIO_Port,LED0_Pin); 
 			HAL_UART_Transmit_IT(&huart1,revbuf1,sizeof(revbuf1));
 			HAL_UART_Receive_IT(&huart1,revbuf1,sizeof(revbuf1));
     }
-		/*����2���жϺ���*/
-		if(huart->Instance == USART2)             /* ����Ǵ���1 */
+		
+		if(huart->Instance == USART2)             
     { 
 			HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
 			HAL_UART_Transmit_IT(&huart2,revbuf2,sizeof(revbuf2));
 			HAL_UART_Receive_IT(&huart2,revbuf2,sizeof(revbuf2));
 		}
-		/*����2���жϺ���*/
-		if(huart->Instance == USART3)             /* ����Ǵ���1 */
+		
+		if(huart->Instance == USART3)             
     {
-      HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
-			HAL_UART_Transmit_IT(&huart3,revbuf3,sizeof(revbuf3));
-			HAL_UART_Receive_IT(&huart3,revbuf3,sizeof(revbuf3));
+			HAL_UART_Receive_IT(&huart3, (uint8_t *)&ucTemp,1);	
+			WitSerialDataIn(ucTemp);
 		}
 }
-/***************************************************���ڻص�����*****************************************************************************************/
-
-///**
-// * @brief       ����1�жϷ�����
-// * @param       ��
-// * @retval      ��
-// */
-//void USART1_IRQn(void)
-//{ 
-//    uint32_t timeout = 0;
-//    uint32_t maxDelay = 0x1FFFF;
-//    
-//    HAL_UART_IRQHandler(&g_uart1_handle);       /* ����HAL���жϴ����ú��� */
-
-//    timeout = 0;
-//    while (HAL_UART_GetState(&g_uart1_handle) != HAL_UART_STATE_READY) /* �ȴ����� */
-//    {
-//        timeout++;                              /* ��ʱ���� */
-//        if(timeout > maxDelay)
-//        {
-//            break;
-//        }
-//    }
-//     
-//    timeout=0;
-//    
-//    /* һ�δ������֮�����¿����жϲ�����RxXferCountΪ1 */
-//    while (HAL_UART_Receive_IT(&g_uart1_handle, (uint8_t *)g_rx_buffer, RXBUFFERSIZE) != HAL_OK)
-//    {
-//        timeout++;                              /* ��ʱ���� */
-//        if (timeout > maxDelay)
-//        {
-//            break;
-//        }
-//    }
-//}
-
-///**
-// * @brief       ����2�жϷ�����
-// * @param       ��
-// * @retval      ��
-// */
-//void USART2_IRQn(void)
-//{ 
-//    uint32_t timeout = 0;
-//    uint32_t maxDelay = 0x1FFFF;
-//    
-//    HAL_UART_IRQHandler(&g_uart2_handle);       /* ����HAL���жϴ����ú��� */
-
-//    timeout = 0;
-//    while (HAL_UART_GetState(&g_uart2_handle) != HAL_UART_STATE_READY) /* �ȴ����� */
-//    {
-//        timeout++;                              /* ��ʱ���� */
-//        if(timeout > maxDelay)
-//        {
-//            break;
-//        }
-//    }
-//     
-//    timeout=0;
-//    
-//    /* һ�δ������֮�����¿����жϲ�����RxXferCountΪ1 */
-//    while (HAL_UART_Receive_IT(&g_uart2_handle, (uint8_t *)g_rx2_buffer, RX2BUFFERSIZE) != HAL_OK)
-//    {
-//        timeout++;                              /* ��ʱ���� */
-//        if (timeout > maxDelay)
-//        {
-//            break;
-//        }
-//    }
-//}
-
-///**
-// * @brief       ����3�жϷ�����
-// * @param       ��
-// * @retval      ��
-// */
-//void USART3_IRQn(void)
-//{ 
-//    uint32_t timeout = 0;
-//    uint32_t maxDelay = 0x1FFFF;
-//    
-//    HAL_UART_IRQHandler(&g_uart3_handle);       /* ����HAL���жϴ����ú��� */
-
-//    timeout = 0;
-//    while (HAL_UART_GetState(&g_uart3_handle) != HAL_UART_STATE_READY) /* �ȴ����� */
-//    {
-//        timeout++;                              /* ��ʱ���� */
-//        if(timeout > maxDelay)
-//        {
-//            break;
-//        }
-//    }
-//     
-//    timeout=0;
-//    
-//    /* һ�δ������֮�����¿����жϲ�����RxXferCountΪ1 */
-//    while (HAL_UART_Receive_IT(&g_uart3_handle, (uint8_t *)g_rx3_buffer, RX2BUFFERSIZE) != HAL_OK)
-//    {
-//        timeout++;                              /* ��ʱ���� */
-//        if (timeout > maxDelay)
-//        {
-//            break;
-//        }
-//    }
-//}
-/* USER CODE END 1 */

@@ -1,25 +1,4 @@
 #include "main.h"
-#include "cmsis_os.h"
-#include "adc.h"
-#include "dma.h"
-#include "i2c.h"
-#include "tim.h"
-#include "usart.h"
-#include "gpio.h"
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-#include "KEY.h"
-#include "LED.h"
-#include "TB6612.h"
-#include "stdio.h"
-#include "pid.h"
-#include "timer.h"
-#include "math.h"
-#include "mpu6050.h"
-#include "inv_mpu.h"
-#include "inv_mpu_dmp_motion_driver.h"
-#include "delay.h"
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
@@ -68,13 +47,8 @@ int main(void)
 	HAL_ADC_Start(&hadc1);
 	
 	PID_param_init();
+	HWT101_Init();  //HWT101
 
-	//陀螺仪
-	MPU_Init(); //初始化MPU6050
-	while(mpu_dmp_init()) //DMP库获取数值解算
-	{
-		printf("初始化DMP完成%d\r\n",mpu_dmp_init());
-	}
   /* Init scheduler */
   osKernelInitialize();
 
@@ -85,24 +59,43 @@ int main(void)
 	//当程序执行到osKernelStart();或者freertos_demo();将不会继续往下执行
   while (1)
   {
-		if(mpu_dmp_get_data(&pitch, &roll, &yaw)==0)
-		{
-			//printf("pitch:%.3f\r\n roll:%.3f\r\n yaw:%.3f\r\n",pitch,roll,yaw);
-			printf("pitch:%.3f\r\n",pitch);
-			printf("roll:%.3f\r\n",roll);
-			printf("yaw:%.3f\r\n",yaw);
-			printf("电池电压%.2fV\r\n",ADC_Vol);
-			printf("-----------------------------------------------------------\r\n");
-			HAL_Delay(800);
-		}
 		Key_Control();
   }
 }
 
-/**
-  * @brief System Clock Configuration
-  * @retval None
-  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};

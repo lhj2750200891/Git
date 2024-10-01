@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>MPL_LOG_NDEBUG=1,MPU6050,EMPL,USE_DMP,EMPL_TARGET_STM32F4,USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Hardware/KEY;../Hardware/LED;../Hardware;../Hardware/TB6612;../Hardware/PID;../Hardware/TIMER;../Hardware/Hardware_MPU6050;../System/Delay;../System/Sys;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Hardware/RTOS</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Hardware/KEY;../Hardware/LED;../Hardware;../Hardware/TB6612;../Hardware/PID;../Hardware/TIMER;../Hardware/Hardware_MPU6050;../System/Delay;../System/Sys;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Hardware/RTOS;..\Hardware\HWT101</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1270,26 +1270,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Hardware/Hardware_MPU6050</GroupName>
-          <Files>
-            <File>
-              <FileName>inv_mpu.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Hardware\Hardware_MPU6050\inv_mpu.c</FilePath>
-            </File>
-            <File>
-              <FileName>inv_mpu_dmp_motion_driver.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Hardware\Hardware_MPU6050\inv_mpu_dmp_motion_driver.c</FilePath>
-            </File>
-            <File>
-              <FileName>mpu6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Hardware\Hardware_MPU6050\mpu6050.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>System</GroupName>
           <Files>
             <File>
@@ -1935,6 +1915,21 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Hardware/HWT101</GroupName>
+          <Files>
+            <File>
+              <FileName>HWT101.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\HWT101\HWT101.c</FilePath>
+            </File>
+            <File>
+              <FileName>wit_c_sdk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\HWT101\wit_c_sdk.c</FilePath>
             </File>
           </Files>
         </Group>

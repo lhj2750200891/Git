@@ -60,9 +60,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	{
 		CNT2++;
 		ADC_Vol=(double)StartAndGetOneResult()*3.3*11/4096;//读取转换的AD值
+		HWT101_GetData();
 		if(CNT2==5)
 		{
-			
+			printf("angle:%.3f\r\n",HWT101_yaw);
 			CNT2=0;
 		}
 	}	

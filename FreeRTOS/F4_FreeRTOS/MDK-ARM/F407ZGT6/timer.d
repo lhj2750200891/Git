@@ -45,15 +45,12 @@ f407zgt6\timer.o: ../Hardware/TB6612/TB6612.h
 f407zgt6\timer.o: ../Hardware/PID/pid.h
 f407zgt6\timer.o: ../Hardware/TIMER/timer.h
 f407zgt6\timer.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\math.h
-f407zgt6\timer.o: ../Hardware/Hardware_MPU6050/mpu6050.h
-f407zgt6\timer.o: ../Core/Inc/i2c.h
-f407zgt6\timer.o: ../Hardware/Hardware_MPU6050/inv_mpu.h
-f407zgt6\timer.o: ../Hardware/Hardware_MPU6050/inv_mpu_dmp_motion_driver.h
 f407zgt6\timer.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\stdio.h
 f407zgt6\timer.o: ../Core/Inc/tim.h
 f407zgt6\timer.o: ../Core/Inc/gpio.h
 f407zgt6\timer.o: ../Core/Inc/adc.h
 f407zgt6\timer.o: ../Core/Inc/dma.h
+f407zgt6\timer.o: ../Core/Inc/i2c.h
 f407zgt6\timer.o: ../Core/Inc/usart.h
 f407zgt6\timer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 f407zgt6\timer.o: ../Core/Inc/FreeRTOSConfig.h
@@ -67,3 +64,7 @@ f407zgt6\timer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 f407zgt6\timer.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 f407zgt6\timer.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 f407zgt6\timer.o: ../Hardware/RTOS/RTOS.h
+f407zgt6\timer.o: ..\Hardware\HWT101\HWT101.h
+f407zgt6\timer.o: ..\Hardware\HWT101\wit_c_sdk.h
+f407zgt6\timer.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\string.h
+f407zgt6\timer.o: ..\Hardware\HWT101\REG.h
