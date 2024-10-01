@@ -3,8 +3,6 @@
 
 #include "sys.h"
 
-#define u32     uint32_t	
-//void delay_ms(u16 nms);
-void delay_us(u32 nus);
+void delay_us(unsigned int nus);
 
 #endif

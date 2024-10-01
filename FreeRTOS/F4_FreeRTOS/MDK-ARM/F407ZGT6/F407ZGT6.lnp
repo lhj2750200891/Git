@@ -53,6 +53,10 @@
 "f407zgt6\port.o"
 "f407zgt6\hwt101.o"
 "f407zgt6\wit_c_sdk.o"
+"f407zgt6\gui.o"
+"f407zgt6\lcd.o"
+"f407zgt6\spi.o"
+"f407zgt6\test.o"
 --library_type=microlib --strict --scatter "F407ZGT6\F407ZGT6.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

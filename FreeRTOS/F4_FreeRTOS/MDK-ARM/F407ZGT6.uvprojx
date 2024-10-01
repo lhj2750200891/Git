@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>MPL_LOG_NDEBUG=1,MPU6050,EMPL,USE_DMP,EMPL_TARGET_STM32F4,USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Hardware/KEY;../Hardware/LED;../Hardware;../Hardware/TB6612;../Hardware/PID;../Hardware/TIMER;../Hardware/Hardware_MPU6050;../System/Delay;../System/Sys;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Hardware/RTOS;..\Hardware\HWT101</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Hardware/KEY;../Hardware/LED;../Hardware;../Hardware/TB6612;../Hardware/PID;../Hardware/TIMER;../Hardware/Hardware_MPU6050;../System/Delay;../System/Sys;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Hardware/RTOS;..\Hardware\HWT101;..\Hardware\Software_LCD3.5</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1930,6 +1930,31 @@
               <FileName>wit_c_sdk.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Hardware\HWT101\wit_c_sdk.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Hardware/LCD</GroupName>
+          <Files>
+            <File>
+              <FileName>GUI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\Software_LCD3.5\GUI.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\Software_LCD3.5\lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\Software_LCD3.5\SPI.c</FilePath>
+            </File>
+            <File>
+              <FileName>test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\Software_LCD3.5\test.c</FilePath>
             </File>
           </Files>
         </Group>

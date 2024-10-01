@@ -48,17 +48,21 @@ int main(void)
 	
 	PID_param_init();
 	HWT101_Init();  //HWT101
+	LCD_GPIO_Init();
+	LCD_Init();
+	LCD_Static_Show();
 
   /* Init scheduler */
-  osKernelInitialize();
+//  osKernelInitialize();
 
-  /* Call init function for freertos objects (in cmsis_os2.c) */
-  MX_FREERTOS_Init();
-  //osKernelStart();//
-	freertos_demo();
-	//当程序执行到osKernelStart();或者freertos_demo();将不会继续往下执行
+//  /* Call init function for freertos objects (in cmsis_os2.c) */
+//  MX_FREERTOS_Init();
+//  //osKernelStart();//
+//	freertos_demo();
+//	//当程序执行到osKernelStart();或者freertos_demo();将不会继续往下执行
   while (1)
   {
+		LCD_Dynamic_Show();
 		Key_Control();
   }
 }

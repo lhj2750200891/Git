@@ -2,7 +2,7 @@
 #include "gpio.h"
 #include "Delay.h"
 
-void delay_us(u32 nus)
+void delay_us(unsigned int nus)
 {		
 	uint32_t us_tick=SystemCoreClock / 1000000UL;
 	uint32_t start,now,JianGe,reload;

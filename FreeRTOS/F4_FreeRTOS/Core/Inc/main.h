@@ -34,6 +34,10 @@ extern "C" {
 #include "RTOS.h"
 #include "HWT101.h"
 #include "wit_c_sdk.h"
+#include "lcd.h"
+#include "spi.h"
+#include "gui.h"
+#include "test.h"
 
 /* USER CODE END Includes */
 
@@ -90,7 +94,7 @@ void Error_Handler(void);
 #define DIN2_GPIO_Port GPIOG
 
 /* USER CODE BEGIN Private defines */
-
+#define delay_ms HAL_Delay
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

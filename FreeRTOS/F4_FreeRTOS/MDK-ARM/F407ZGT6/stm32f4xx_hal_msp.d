@@ -68,3 +68,8 @@ f407zgt6\stm32f4xx_hal_msp.o: ..\Hardware\HWT101\HWT101.h
 f407zgt6\stm32f4xx_hal_msp.o: ..\Hardware\HWT101\wit_c_sdk.h
 f407zgt6\stm32f4xx_hal_msp.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\string.h
 f407zgt6\stm32f4xx_hal_msp.o: ..\Hardware\HWT101\REG.h
+f407zgt6\stm32f4xx_hal_msp.o: ..\Hardware\Software_LCD3.5\lcd.h
+f407zgt6\stm32f4xx_hal_msp.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
+f407zgt6\stm32f4xx_hal_msp.o: ..\Hardware\Software_LCD3.5\spi.h
+f407zgt6\stm32f4xx_hal_msp.o: ..\Hardware\Software_LCD3.5\gui.h
+f407zgt6\stm32f4xx_hal_msp.o: ..\Hardware\Software_LCD3.5\test.h

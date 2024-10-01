@@ -68,3 +68,8 @@ f407zgt6\hwt101.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 f407zgt6\hwt101.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 f407zgt6\hwt101.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 f407zgt6\hwt101.o: ../Hardware/RTOS/RTOS.h
+f407zgt6\hwt101.o: ..\Hardware\Software_LCD3.5\lcd.h
+f407zgt6\hwt101.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
+f407zgt6\hwt101.o: ..\Hardware\Software_LCD3.5\spi.h
+f407zgt6\hwt101.o: ..\Hardware\Software_LCD3.5\gui.h
+f407zgt6\hwt101.o: ..\Hardware\Software_LCD3.5\test.h

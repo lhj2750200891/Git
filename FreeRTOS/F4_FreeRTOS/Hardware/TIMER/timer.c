@@ -2,8 +2,8 @@
 
 /*定时器中断中所用到的全局变量的定义*/
 int CNT1=0,CNT2=0;
-int16_t EncoderC=0,EncoderD=0;   //10MS内的脉冲数
-int16_t S_EncoderC=0,S_EncoderD=0;//脉冲累计
+int16_t EncoderA=0,EncoderB=0,EncoderC=0,EncoderD=0;   //10MS内的脉冲数
+int16_t S_EncoderA=0,S_EncoderB=0,S_EncoderC=0,S_EncoderD=0;//脉冲累计
 /*全局变量的引用extern()*/
 
 /*
@@ -11,12 +11,16 @@ int16_t S_EncoderC=0,S_EncoderD=0;//脉冲累计
 入口参数：无
 返回值：无
 */
-void Reading(int16_t *L_Val,int16_t *R_Val)
+void Reading(int16_t *L1_Val,int16_t *R1_Val,int16_t *L2_Val,int16_t *R2_Val)
 {
-	*R_Val=TIM5->CNT; //读取计数
-	TIM5->CNT = 0;
-	*L_Val=-TIM4->CNT;
+	*L1_Val=-TIM2->CNT; //读取计数
+	TIM2->CNT = 0;
+	*R1_Val=TIM3->CNT;
+	TIM3->CNT = 0;
+	*L2_Val=-TIM4->CNT; //读取计数
 	TIM4->CNT = 0;
+	*R2_Val=TIM5->CNT;
+	TIM5->CNT = 0;
 }
 
 /*
@@ -29,8 +33,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	if(htim->Instance==TIM6)   //10ms
 	{
 		CNT1++;
-		Reading(&EncoderC,&EncoderD);   //读取完成，自动清零
-		S_EncoderC+=EncoderC;
+		Reading(&EncoderA,&EncoderB,&EncoderC,&EncoderD);   //读取完成，自动清零
+		S_EncoderA+=EncoderA;
+		S_EncoderB+=EncoderB;		
+	  S_EncoderC+=EncoderC;
 		S_EncoderD+=EncoderD;
 		if(keyflag==1)
 		{
