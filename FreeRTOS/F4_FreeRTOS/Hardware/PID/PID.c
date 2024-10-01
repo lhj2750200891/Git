@@ -35,7 +35,7 @@ void PID_param_init(void)
 
 	addPID.Kp = 5;
 //	addPID.Kp = 1.1*log10(6.8*abs(addPID.Error)+10);
-	addPID.Ki = 0.6;//0.8
+	addPID.Ki = 0.8;//0.8
 	addPID.Kd = 0;
 
   /*速度PID的参数（右轮）*/
@@ -139,8 +139,8 @@ float PosionPID_realize(PID *pid, float actual_val)
 */
 void speed_pid(void)
 {
-		left_speed  = addPID_realize(&addPID,EncoderA);
-		right_speed = addPID_realize(&add2PID,EncoderB);
+		left_speed  = addPID_realize(&addPID,EncoderC);
+		right_speed = addPID_realize(&add2PID,EncoderD);
 		PWMC_Set(left_speed);
 		PWMD_Set(right_speed);
 }
@@ -153,18 +153,18 @@ void speed_pid(void)
 void Motor_Control_ClosedLoop(void)
 {
 	//左轮
-	S_EncoderA+=EncoderA;
-	speedL=PosionPID_realize(&PositionPID,S_EncoderA);
+	S_EncoderC+=EncoderC;
+	speedL=PosionPID_realize(&PositionPID,S_EncoderC);
 	speedL=Xianfu(speedL,Speed_LMax);
 	addPID.target_val=speedL;
-	speedL=addPID_realize(&addPID,EncoderA);
+	speedL=addPID_realize(&addPID,EncoderC);
 	PWMC_Set(speedL);
-	if(myabs(S_EncoderA-PositionPID.target_val)<10)
+	if(myabs(S_EncoderC-PositionPID.target_val)<10)
 	{
 		addPID.target_val=0;
-		speedL=addPID_realize(&addPID,EncoderA);
+		speedL=addPID_realize(&addPID,EncoderC);
 		PWMC_Set(speedL);
-		S_EncoderA=0;
+		S_EncoderC=0;
 		PositionPID.target_val=0;
 		PositionPID.Error=0;
 		PositionPID.integral=0;
@@ -172,18 +172,18 @@ void Motor_Control_ClosedLoop(void)
 	}
 	
 	//右轮
-	S_EncoderB+=EncoderB;
-	speedR=PosionPID_realize(&Position2PID,S_EncoderB);
+	S_EncoderD+=EncoderD;
+	speedR=PosionPID_realize(&Position2PID,S_EncoderD);
 	speedR=Xianfu(speedR,Speed_RMax);
 	add2PID.target_val=speedR;
-	speedR=addPID_realize(&add2PID,EncoderB);
+	speedR=addPID_realize(&add2PID,EncoderD);
 	PWMD_Set(speedR);
-	if(myabs(S_EncoderB-Position2PID.target_val)<15)
+	if(myabs(S_EncoderD-Position2PID.target_val)<15)
 	{
 		add2PID.target_val=0;
-		speedR=addPID_realize(&add2PID,EncoderB);
+		speedR=addPID_realize(&add2PID,EncoderD);
 		PWMD_Set(speedR);
-		S_EncoderB=0;
+		S_EncoderD=0;
 		Position2PID.target_val=0;
 		Position2PID.Error=0;
 		Position2PID.integral=0;
@@ -198,12 +198,12 @@ void Motor_Control_ClosedLoop(void)
 */
 void clear(void)
 {
-	S_EncoderA=0;
+	S_EncoderC=0;
 	PositionPID.target_val=0;
 	PositionPID.Error=0.0;
 	PositionPID.LastError=0.0;
 	PositionPID.integral=0.0;
-	S_EncoderB=0;
+	S_EncoderD=0;
 	Position2PID.target_val=0;
 	Position2PID.Error=0.0;
 	Position2PID.LastError=0.0;
@@ -215,19 +215,20 @@ void clear(void)
 入口参数：无
 返回值：无
 */
+int yawspd_set=20,Xans_speed=5;
+
 void Speed_Angle_ClosedLoop(void)
 {
-//	yawPID.target_val=yawcontrol.direction;				
-//	yaw_out = PosionPID_realize(&yawPID,yaw);
-//	yaw_out = Xianfu(yaw_out,5);
-//	if(yawcontrol.speed>0 && yawcontrol.speed<5) yawcontrol.speed=5;										//不能让speed-yaw_out小于0
-//	else if(yawcontrol.speed<0 && yawcontrol.speed>-5) yawcontrol.speed=-5;	
-//	addPID.target_val = yawcontrol.speed-yaw_out;    				   	 // 位置环给到速度环的输入
-//	add2PID.target_val = yawcontrol.speed + yaw_out;
-//	yaw_speedL=addPID_realize(&addPID,EncoderA);//4.输入速度式PID计算
-//	yaw_speedR=addPID_realize(&add2PID,EncoderB);//4.输入速度式PID计算
-//	PWMC_Set(yaw_speedL);
-//	PWMD_Set(yaw_speedR);
+	yaw_out = PosionPID_realize(&yawPID,HWT101_yaw);
+	yaw_out = Xianfu(yaw_out,Xans_speed);
+	if(yawspd_set>0 && yawspd_set<=Xans_speed) yawspd_set=Xans_speed;
+	else if(yawspd_set<0 && yawspd_set>-Xans_speed) yawspd_set=-Xans_speed;
+	addPID.target_val=yawspd_set-yaw_out;
+	add2PID.target_val=yawspd_set+yaw_out;
+	yaw_speedL=addPID_realize(&addPID,EncoderC);
+	yaw_speedR=addPID_realize(&add2PID,EncoderD);
+	PWMC_Set(yaw_speedL);
+	PWMD_Set(yaw_speedR);
 }
 
 /*
@@ -240,7 +241,7 @@ void Motor_ClosedLoop_Step(int speedL,int speedR,float circleL,float circleR)
 	Speed_LMax=speedL,Speed_RMax=speedR,PositionPID.target_val=1560*circleL*1.00f,Position2PID.target_val=1560*circleR*1.00f;
 	while(1)
 	{
-		if(myabs(S_EncoderB-Position2PID.target_val)<15)
+		if(myabs(S_EncoderD-Position2PID.target_val)<15)
 		{
 			clear ();
 			break;

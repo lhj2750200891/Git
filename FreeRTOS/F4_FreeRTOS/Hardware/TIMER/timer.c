@@ -2,8 +2,8 @@
 
 /*定时器中断中所用到的全局变量的定义*/
 int CNT1=0,CNT2=0;
-int16_t EncoderA=0,EncoderB=0;   //10MS内的脉冲数
-int16_t S_EncoderA=0,S_EncoderB=0;//脉冲累计
+int16_t EncoderC=0,EncoderD=0;   //10MS内的脉冲数
+int16_t S_EncoderC=0,S_EncoderD=0;//脉冲累计
 /*全局变量的引用extern()*/
 
 /*
@@ -29,30 +29,22 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	if(htim->Instance==TIM6)   //10ms
 	{
 		CNT1++;
-		Reading(&EncoderA,&EncoderB);   //读取完成，自动清零
-		S_EncoderB+=EncoderB;
-		S_EncoderA+=EncoderA;
+		Reading(&EncoderC,&EncoderD);   //读取完成，自动清零
+		S_EncoderC+=EncoderC;
+		S_EncoderD+=EncoderD;
 		if(keyflag==1)
 		{
 			speed_pid();
 			addPID.target_val = 10;	
 			add2PID.target_val = 10;
-			printf("左轮%d\r\n",EncoderA);
-			printf("右轮%d\r\n",EncoderB);
 		}
 		if(keyflag==2)
 		{
-			speed_pid();
-			PWMC_Set(0);
-			PWMD_Set(0);
-			printf("左轮%d\r\n",EncoderA);
-			printf("右轮%d\r\n",EncoderB);
+			Speed_Angle_ClosedLoop();
 		}
 		if(keyflag==3)
 		{
 			Motor_Control_ClosedLoop();
-			printf("左轮%d\r\n",EncoderA);
-			printf("右轮%d\r\n",EncoderB);
 		}
 	}
 	
@@ -64,6 +56,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		if(CNT2==5)
 		{
 			printf("angle:%.3f\r\n",HWT101_yaw);
+			printf("power:%.3f\r\n",ADC_Vol);
 			CNT2=0;
 		}
 	}	

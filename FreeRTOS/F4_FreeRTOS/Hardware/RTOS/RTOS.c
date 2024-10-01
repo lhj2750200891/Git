@@ -147,24 +147,16 @@ void task4(void *pvParameters)
 		keynum = key_scan(0);
 		if(keynum == 1)
 		{
-			if(Task1Task_Handler != NULL)   //依次删除任务，按键按下一次删除一个任务
-			{
-				vTaskDelete(Task1Task_Handler);
-				printf("Task1 ==> Deleted \r\n");
-				Task1Task_Handler = NULL;
-			}
-			else if(Task2Task_Handler != NULL)
-			{
-				vTaskDelete(Task2Task_Handler);
-				printf("Task2 ==> Deleted \r\n");
-				Task2Task_Handler = NULL;
-			}
-			else if(Task3Task_Handler != NULL)
-			{
-				vTaskDelete(Task3Task_Handler);
-				printf("Task3 ==> Deleted \r\n");
-				Task3Task_Handler = NULL;
-			}
+			keyflag = 1;
+		}
+		else if(keynum == 2)
+		{
+			keyflag = 2;
+		}
+		else if(keynum == 3)
+		{
+			keyflag = 3;
+			Motor_ClosedLoop_Step(10,10,3,6);
 		}
 		vTaskDelay(10);
 	}
