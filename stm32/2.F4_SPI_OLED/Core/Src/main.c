@@ -136,11 +136,8 @@ int main(void)
     /* USER CODE BEGIN 3 */
 		if(mpu_dmp_get_data(&pitch, &roll, &yaw)==0)
 		{
-			printf("pitch:%.3f\r\n",pitch);
-			printf("roll:%.3f\r\n",roll);
-			printf("yaw:%.3f\r\n",yaw);
-			printf("电源电压%.2fV\r\n",ADC_Vol);
-			printf("-----------------------------------------------------------\r\n");
+			
+			
 		}
 		Key_Control();
   }
