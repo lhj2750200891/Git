@@ -310,7 +310,7 @@ uint8_t revbuf1[6];
 uint8_t revbuf2[6];
 uint8_t revbuf3[6];
 
-unsigned char ucTemp;
+uint8_t ucTemp;
 
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)

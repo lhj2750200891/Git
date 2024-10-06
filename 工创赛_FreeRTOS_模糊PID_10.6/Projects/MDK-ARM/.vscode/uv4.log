@@ -1,0 +1,53 @@
+*** Using Compiler 'V5.04 update 1 (build 49)', folder: 'D:\Keil 5\ARM\ARMCC\Bin'
+Build target 'FreeRTOS'
+compiling moto.c...
+..\..\Drivers\BSP\MOTO\moto.c(23): warning:  #223-D: function "MOTO3A_GPIO_CLK_ENABLE" declared implicitly
+      MOTO3A_GPIO_CLK_ENABLE();
+..\..\Drivers\BSP\MOTO\moto.c(24): warning:  #223-D: function "MOTO3B_GPIO_CLK_ENABLE" declared implicitly
+  	  MOTO3B_GPIO_CLK_ENABLE();
+..\..\Drivers\BSP\MOTO\moto.c(25): warning:  #223-D: function "MOTO4A_GPIO_CLK_ENABLE" declared implicitly
+  	  MOTO4A_GPIO_CLK_ENABLE();
+..\..\Drivers\BSP\MOTO\moto.c(28): error:  #20: identifier "MOTO3A_GPIO_PIN" is undefined
+  																			| MOTO3A_GPIO_PIN | MOTO3B_GPIO_PIN | MOTO4A_GPIO_PIN | MOTO4B_GPIO_PIN; /* 引脚 */
+..\..\Drivers\BSP\MOTO\moto.c(28): error:  #20: identifier "MOTO3B_GPIO_PIN" is undefined
+  																			| MOTO3A_GPIO_PIN | MOTO3B_GPIO_PIN | MOTO4A_GPIO_PIN | MOTO4B_GPIO_PIN; /* 引脚 */
+..\..\Drivers\BSP\MOTO\moto.c(28): error:  #20: identifier "MOTO4A_GPIO_PIN" is undefined
+  																			| MOTO3A_GPIO_PIN | MOTO3B_GPIO_PIN | MOTO4A_GPIO_PIN | MOTO4B_GPIO_PIN; /* 引脚 */
+..\..\Drivers\BSP\MOTO\moto.c(28): error:  #20: identifier "MOTO4B_GPIO_PIN" is undefined
+  																			| MOTO3A_GPIO_PIN | MOTO3B_GPIO_PIN | MOTO4A_GPIO_PIN | MOTO4B_GPIO_PIN; /* 引脚 */
+..\..\Drivers\BSP\MOTO\moto.c(36): error:  #20: identifier "MOTO3A_GPIO_PORT" is undefined
+  	  HAL_GPIO_Init(MOTO3A_GPIO_PORT, &gpio_init_struct);           /* KEY0引脚模式设置,上拉输入 */
+..\..\Drivers\BSP\MOTO\moto.c(37): error:  #20: identifier "MOTO3B_GPIO_PORT" is undefined
+  	  HAL_GPIO_Init(MOTO3B_GPIO_PORT, &gpio_init_struct);           /* KEY0引脚模式设置,上拉输入 */
+..\..\Drivers\BSP\MOTO\moto.c(38): error:  #20: identifier "MOTO4A_GPIO_PORT" is undefined
+  	  HAL_GPIO_Init(MOTO4A_GPIO_PORT, &gpio_init_struct);           /* KEY0引脚模式设置,上拉输入 */
+..\..\Drivers\BSP\MOTO\moto.c(39): error:  #20: identifier "MOTO4B_GPIO_PORT" is undefined
+  	  HAL_GPIO_Init(MOTO4B_GPIO_PORT, &gpio_init_struct);           /* KEY0引脚模式设置,上拉输入 */
+..\..\Drivers\BSP\MOTO\moto.c(77): warning:  #223-D: function "MOTO4A" declared implicitly
+  		MOTO4A(1);
+..\..\Drivers\BSP\MOTO\moto.c(78): warning:  #223-D: function "MOTO4B" declared implicitly
+  		MOTO4B(0);
+..\..\Drivers\BSP\MOTO\moto.c(79): warning:  #223-D: function "TIM_SetTIM8Compare4" declared implicitly
+  		TIM_SetTIM8Compare4(pwm*84);
+..\..\Drivers\BSP\MOTO\moto.c(83): warning:  #223-D: function "MOTO4A" declared implicitly
+  		MOTO4A(0);
+..\..\Drivers\BSP\MOTO\moto.c(84): warning:  #223-D: function "MOTO4B" declared implicitly
+  		MOTO4B(1);
+..\..\Drivers\BSP\MOTO\moto.c(85): warning:  #223-D: function "TIM_SetTIM8Compare4" declared implicitly
+  		TIM_SetTIM8Compare4(-pwm*84);
+..\..\Drivers\BSP\MOTO\moto.c(92): warning:  #223-D: function "MOTO3A" declared implicitly
+  		MOTO3A(0);
+..\..\Drivers\BSP\MOTO\moto.c(93): warning:  #223-D: function "MOTO3B" declared implicitly
+  		MOTO3B(1);
+..\..\Drivers\BSP\MOTO\moto.c(94): warning:  #223-D: function "TIM_SetTIM8Compare3" declared implicitly
+  		TIM_SetTIM8Compare3(pwm*84);
+..\..\Drivers\BSP\MOTO\moto.c(98): warning:  #223-D: function "MOTO3A" declared implicitly
+  		MOTO3A(1);
+..\..\Drivers\BSP\MOTO\moto.c(99): warning:  #223-D: function "MOTO3B" declared implicitly
+  		MOTO3B(0);
+..\..\Drivers\BSP\MOTO\moto.c(100): warning:  #223-D: function "TIM_SetTIM8Compare3" declared implicitly
+  		TIM_SetTIM8Compare3(-pwm*84);
+..\..\Drivers\BSP\MOTO\moto.c: 15 warnings, 8 errors
+"..\..\Output\atk_f407.axf" - 8 Error(s), 15 Warning(s).
+Target not created.
+Build Time Elapsed:  00:00:04
