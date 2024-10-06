@@ -2,6 +2,7 @@
 #include "./BSP/MOTO/moto.h"
 #include "control.h"
 #include "math.h"
+#include "HWT101.h"
 /*定义一个PID结构体型的全局变量*/
 PID addPID;
 PID add2PID;
@@ -304,7 +305,7 @@ float yaw_output(void)
 {
 	static int speed = 0;
 		PosionPID.target_val=yaw_set_value;
-		speed = PosionPID_realize(&PosionPID,(int)yaw);
+		speed = PosionPID_realize(&PosionPID,(int)HWT101_yaw);
 		speed = Xianfu(speed , 15);
 		return  speed;
 }

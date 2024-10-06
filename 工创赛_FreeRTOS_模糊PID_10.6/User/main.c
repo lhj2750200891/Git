@@ -49,6 +49,7 @@ int main(void)
     delay_init(168);                    /* 延时初始化 */
     usart_init(115200);                 /* 串口初始化为115200 */
   usart2_init(115200);  
+	HWT101_Init();  //HWT101
 		led_init();                         /* 初始化LED */																				
 	  OLED_Init();											  /* 初始化oled */
     key_init();                         /* 初始化按键 */
@@ -64,8 +65,8 @@ int main(void)
 	  HAL_TIM_Encoder_Start(&htim5,TIM_CHANNEL_ALL);//开启定时器5
 	  adc_init();                             /* 初始化ADC */
 		moto_init();
-		MPU_Init();
-    mpu_dmp_init();											//初始化MPU6050
+		//MPU_Init();
+    //mpu_dmp_init();											//初始化MPU6050
 	  PID_param_init();                      /*初始化PID参数*/
 		PWM14_Init(20000-1, 84-1);					/*定时器14初始化  舵机*/
 	  //nrf24l01_init();                    /* 初始化NRF24L01 */
@@ -74,10 +75,10 @@ int main(void)
     my_mem_init(SRAMEX);                /* 初始化外部SRAM内存池 */
     my_mem_init(SRAMCCM);               /* 初始化内部CCM内存池 */
 		//usart_init(115200);
-		HWT101_Init();  //HWT101
-		LCD_GPIO_Init();
-		LCD_Init();
-		LCD_Static_Show();
+		
+		//LCD_GPIO_Init();
+		//LCD_Init();
+		//LCD_Static_Show();
 		
     freertos_demo();                    /* 运行FreeRTOS例程 */
 		

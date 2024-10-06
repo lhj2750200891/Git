@@ -13,6 +13,7 @@
 #include "moto.h"
 #include "pid.h"
  #include "./BSP/LED/led.h"
+ #include "HWT101.h"
 float MAX_Err;
 FuzzyPID fuzzy(float e,float ec) // e 是目标值和反馈值的误差 ec是误差变化率(误差e的微分) 
 {
@@ -334,7 +335,7 @@ void moto_wait(void)
 				if(yaw_assisted == 1)
 				{
 				if((myabs(left1)>=myabs(tarA))&&(myabs(right1)>=myabs(tarB))&&
-					(myabs(left2)>=myabs(tarC))&&(myabs(right2)>=myabs(tarD))&&!(Encoder3 || Encoder4 ||Encoder1 || Encoder2)&&((int)yaw == yaw_set_value)){
+					(myabs(left2)>=myabs(tarC))&&(myabs(right2)>=myabs(tarD))&&!(Encoder3 || Encoder4 ||Encoder1 || Encoder2)&&((int)HWT101_yaw == yaw_set_value)){
 				
 					fuzzypid_clearerr();
 					LED1(1);

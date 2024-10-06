@@ -97,3 +97,4 @@
 ..\..\output\pid.o: ..\..\Middlewares\FreeRTOS\include\list.h
 ..\..\output\pid.o: ..\..\Drivers\./BSP/LED/led.h
 ..\..\output\pid.o: C:\user-lihoujun\app\Study\MDK\ARM\ARMCC\Bin\..\include\math.h
+..\..\output\pid.o: ..\..\Drivers\BSP\HWT101\HWT101.h

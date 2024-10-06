@@ -35,7 +35,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			Reading(&Encoder1,&Encoder2);      
 			Readingback(&Encoder3,&Encoder4);
 			//mpu_dmp_get_data(&pitch,&roll,&yaw);
-		
+			HWT101_GetData();
 			if(pidmode==yaw_speed)
 			{ 
 			 yawspeed();													//串级：速度和陀螺仪的航向角

@@ -145,10 +145,12 @@ void task1(void *pvParameters)
     
 	while(1)
 	{
-		HWT101_GetData();
-		printf("YAW: %f\r\n",HWT101_yaw);
+		
+		//printf("YAW: %f\r\n",HWT101_yaw);
 		LED0(0);
-		vTaskDelay(50);
+		vTaskDelay(500);
+		LED0(1);
+		vTaskDelay(500);
 	}
 
 }
@@ -163,7 +165,8 @@ void task1(void *pvParameters)
 void oled_task(void *pvParameters)
 {
 	while(1){
-   LCD_Dynamic_Show();  //LCDœ‘ æ
+		OLED_Show();
+   //LCD_Dynamic_Show();  //LCDœ‘ æ
    vTaskDelay(100);
 	}
 }
@@ -188,10 +191,37 @@ void main_task(void *pvParameters)
 		key = key_scan(0);
 		if(key == 3) {
 			pidmode = fuzzyspd_pid;
-			//yaw_assisted = 1;
-			Moto_Config(3000,front,0);
-			turn90(L);
-			Moto_Config(3000,front,90);
+						Moto_Config(600,left,0);
+            Moto_Config(5000,front,0);
+            vTaskDelay(1000);
+            Moto_Config(5000,front,0);
+            vTaskDelay(1000);
+            Moto_Config(300,left,0);
+            Moto_Config(3000,back,0);
+            turn90(L);
+            Moto_Config(11500,front,90);
+            turn90(L);
+            vTaskDelay(1000);
+            turn90(R);
+            Moto_Config(5300,right,90);
+            Moto_Config(6000,back,90);
+            vTaskDelay(1000);
+            Moto_Config(5800,back,90);
+            turn90(R);
+            Moto_Config(3000,back,0);
+            vTaskDelay(1000);
+            Moto_Config(300,left,0);
+            Moto_Config(3000,back,0);
+            turn90(L);
+            Moto_Config(11500,front,90);
+            turn90(L);
+            vTaskDelay(1000);
+            turn90(R);
+            Moto_Config(5500,right,90);
+            Moto_Config(6000,back,90);
+            vTaskDelay(1000);
+            Moto_Config(12000,left,90);
+            Moto_Config(5500,back,90);
 //			tarA = 6000;
 //			tarB = -6000;
 //			tarC = -6000;

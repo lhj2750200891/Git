@@ -96,4 +96,5 @@
 ..\..\output\oled.o: ..\..\Middlewares\FreeRTOS\include\task.h
 ..\..\output\oled.o: ..\..\Middlewares\FreeRTOS\include\list.h
 ..\..\output\oled.o: ..\..\Drivers\./BSP/LED/led.h
+..\..\output\oled.o: ..\..\Drivers\BSP\HWT101\HWT101.h
 ..\..\output\oled.o: ..\..\Drivers\BSP\ADC\adc.h

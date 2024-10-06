@@ -9,6 +9,7 @@
 //#include "oledfont.h"
 #include "stm32f4xx_hal.h"
 #include "control.h"
+#include "HWT101.h"
 #include "adc.h"
 //常用ASCII表
 //偏移量32
@@ -546,17 +547,17 @@ void OLED_Show(void)
 
 		//mpu_dmp_get_data(&pitch,&roll,&yaw);
 		OLED_ShowString(20,50,"yaw:");
-		if(yaw>=0)
+		if(HWT101_yaw>=0)
 		{
 			OLED_ShowString(65,50,"+");
-		  OLED_ShowNumber(70,50,yaw,5,12);
+		  OLED_ShowNumber(70,50,HWT101_yaw,5,12);
 		
 
 		}
 		else
 		{
 			OLED_ShowString(65,50,"-");
-			OLED_ShowNumber(70,50,-yaw,5,12);		
+			OLED_ShowNumber(70,50,-HWT101_yaw,5,12);		
 		}
 
 /*编码器显示*/		
