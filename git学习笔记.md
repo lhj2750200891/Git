@@ -60,7 +60,11 @@
 
 ## git remote add origin xxx
 
-​	代表将本地代码推送到github中，xxx为GitHub中的ssh或http地址
+​	给远程仓库起别名，代表将本地代码推送到github中，xxx为GitHub中的ssh或http地址，origin为别名，可任意取
+
+## git remote rm xxx
+
+​	删除别名，xxx表示之前用过的或者已经存在的别名
 
 ## git branch -M main
 
@@ -68,5 +72,13 @@
 
 ## git push -u origin main
 
-​	表示把代码放到新建的分支main中
+​	向远程仓库推送代码，表示把代码放到新建的分支main中
+
+## git clone xxx
+
+克隆远程仓库的代码，xxx代表远程仓库代码的ssh或http地址，克隆下的代码，看不到分支名称，但是可以根据已有的分支直接切换
+
+## 注意：
+
+​	在克隆时，别名也已经克隆出来，所以在提交到远程仓库时，直接使用之前的别名就好，无需再起别名
 
