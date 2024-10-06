@@ -5,16 +5,17 @@
 
 void LCD_Static_Show(void);
 void LCD_Dynamic_Show(void);
-void DrawTestPage(u8 *str);
-void Test_Color(void);
-void Test_FillRec(void);
-void Test_Circle(void);
-void Test_Triangle(void);
-void English_Font_test(void);
-void Chinese_Font_test(void);
-void Pic_test(void);
-void Load_Drow_Dialog(void);
-void Touch_Test(void);
-void main_test(void);
-void Rotate_Test(void);
+void K210_Number_Show(void);
+void LCD_Number123_Show(void);
+void LCD_Number132_Show(void);
+void LCD_Number213_Show(void);
+void LCD_Number231_Show(void);
+void LCD_Number312_Show(void);
+void LCD_Number321_Show(void);
+void LCD_NumberShow_123(void);
+void LCD_NumberShow_132(void);
+void LCD_NumberShow_213(void);
+void LCD_NumberShow_231(void);
+void LCD_NumberShow_312(void);
+void LCD_NumberShow_321(void);
 #endif
